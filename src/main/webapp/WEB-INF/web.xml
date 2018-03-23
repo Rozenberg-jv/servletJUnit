@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+    <display-name>Archetype Created Web Application</display-name>
+
+    <!--<welcome-file-list>
+        <welcome-file>/resources/pages/index.jsp</welcome-file>
+    </welcome-file-list>-->
+
+    <!-- accounts list -->
+    <servlet>
+        <servlet-name>AccountsList</servlet-name>
+        <servlet-class>by.kolbun.andersen.web.servlets.AccountsListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountsList</servlet-name>
+        <url-pattern>/a</url-pattern>
+    </servlet-mapping>
+
+    <!-- Index -->
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <jsp-file>/resources/pages/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- single account info -->
+    <servlet>
+        <servlet-name>SingleAccount</servlet-name>
+        <servlet-class>by.kolbun.andersen.web.servlets.SingleAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SingleAccount</servlet-name>
+        <url-pattern>/a/s</url-pattern>
+    </servlet-mapping>
+
+    <!-- resource mapping -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/static/css/*</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,24 @@
+table {
+    margin: 20px;
+    border: 4px blueviolet solid;
+    background-color: aliceblue;
+    border-collapse: collapse;
+    border-radius: 5px;
+}
+
+td, th {
+    padding: 4px;
+}
+
+td {
+    border: 1px solid darkviolet;
+}
+
+th {
+    border: 3px solid darkviolet;
+}
+
+div {
+    padding-left: 2em;
+    color: lime;
+}
