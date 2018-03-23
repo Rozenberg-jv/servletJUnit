@@ -16,7 +16,7 @@
     <tr>
         <th width="10em">User Id</th>
         <th width="140em">Name of User</th>
-        <th width="50em">Status</th>
+        <th width="80px">Status</th>
         <th width="60em">Money</th>
         <th colspan=2>Action</th>
     </tr>
@@ -30,7 +30,7 @@
                 <c:if test="${a.status == BLOCKED}">id="blocked"</c:if> >
             <td>${a.id}</td>
             <td>${a.user.firstName} ${a.user.lastName}</td>
-            <td><a href="${pageContext.request.contextPath}/a?act=block&id=${a.id}" class="button">${a.status}</a></td>
+            <td><a href="${pageContext.request.contextPath}/a?act=block&id=${a.id}" class="button">SWITCH</a></td>
 
             <td><fmt:formatNumber value="${a.money}" type="currency" currencySymbol="$"/></td>
                 <%--<td>
@@ -53,7 +53,7 @@
     <p id="message">${message}</p>
 </c:if>
 <br/>
-<a href="/a/new" class="button">Add new account</a>
+<a href="${pageContext.request.contextPath}/a/new" class="button">Add new account</a>
 <div>?act=add&f=&l=&m=</div>
 <div>?act=del&id=</div>
 <div>?act=get&id=</div>

@@ -9,7 +9,7 @@
         <welcome-file>/resources/pages/index.jsp</welcome-file>
     </welcome-file-list>-->
 
-    <!-- Index -->
+    <!--Index-->
     <servlet>
         <servlet-name>Index</servlet-name>
         <jsp-file>/resources/pages/index.jsp</jsp-file>
