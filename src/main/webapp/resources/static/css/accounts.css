@@ -3,22 +3,65 @@ table {
     border: 4px blueviolet solid;
     background-color: aliceblue;
     border-collapse: collapse;
-    border-radius: 5px;
+    color: black;
 }
 
-td, th {
+td, th, tr {
     padding: 4px;
 }
 
+#blocked {
+    background-color: #ffbbbb;
+}
+
+#blocked .button {
+    background-color: #ff8888;
+}
+
 td {
-    border: 1px solid darkviolet;
+    border: 1px solid #5e5e5e;
+    border-right: 2px;
 }
 
 th {
-    border: 3px solid darkviolet;
+    border: 2px solid #373737;
 }
 
 div {
     padding-left: 2em;
     color: lime;
+}
+
+#message {
+    padding: 10px;
+    border: dotted #5e5e5e;
+    border-radius: 10px;
+    /*width: 50%;*/
+}
+
+.button {
+    width: inherit;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.outer {
+
+}
+
+td input {
+    margin: auto;
+}
+
+td input .submit {
+    margin: auto;
 }

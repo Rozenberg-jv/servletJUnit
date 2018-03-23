@@ -13,10 +13,12 @@ import java.math.BigInteger;
 import java.util.List;
 
 public class AccountsListServlet extends HttpServlet {
+    private AccountService service = new AccountService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AccountService service = new AccountService();
 
+        String message = "";
         Account a;
         int id;
 
@@ -49,7 +51,7 @@ public class AccountsListServlet extends HttpServlet {
                 int senderId = Integer.parseInt(req.getParameter("sen"));
                 int receiverId = Integer.parseInt(req.getParameter("rec"));
                 BigInteger amount = new BigInteger(req.getParameter("m"));
-                service.doTransh(senderId, receiverId, amount);
+                message = service.doTransh(senderId, receiverId, amount);
                 break;
             case "fill":
                 service.fillRows();
@@ -64,8 +66,14 @@ public class AccountsListServlet extends HttpServlet {
         }
 
         req.setAttribute("accounts", service.getAll());
+        req.setAttribute("message", message);
+        System.out.println("message: " + message);
         req.getRequestDispatcher("/resources/pages/accounts.jsp").forward(req, resp);
 
     }
 
+    /*@Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }*/
 }

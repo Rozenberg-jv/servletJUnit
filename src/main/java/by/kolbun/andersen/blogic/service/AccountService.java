@@ -6,8 +6,9 @@ import by.kolbun.andersen.blogic.entity.Account;
 import java.math.BigInteger;
 import java.util.List;
 
+@SuppressWarnings(value = "SpellCheckingInspection")
 public class AccountService implements IAccountService {
-    AccountDao dao = AccountDao.getInstance();
+    private AccountDao dao = AccountDao.getInstance();
 
     @Override
     public int add(Account a) {
@@ -35,8 +36,8 @@ public class AccountService implements IAccountService {
     }
 
     @Override
-    public void doTransh(int idSender, int idReceiver, BigInteger amount) {
-        dao.doTransaction(idSender, idReceiver, amount);
+    public String doTransh(int idSender, int idReceiver, BigInteger amount) {
+        return dao.doTransh(idSender, idReceiver, amount);
     }
 
     // debug method

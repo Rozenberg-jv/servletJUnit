@@ -1,9 +1,6 @@
 package by.kolbun.andersen.blogic.dao;
 
-import by.kolbun.andersen.blogic.entity.Account;
-import by.kolbun.andersen.blogic.entity.Transh;
-import by.kolbun.andersen.blogic.entity.TranshStatus;
-import by.kolbun.andersen.blogic.entity.User;
+import by.kolbun.andersen.blogic.entity.*;
 import by.kolbun.andersen.blogic.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -85,10 +82,15 @@ public class AccountDao implements IAccountDao {
     }
 
     @Override
-    public void doTransaction(int idSender, int idReceiver, BigInteger amount) {
+    public String doTransh(int idSender, int idReceiver, BigInteger amount) {
+        String message = "o_0 empty message 0_o";
         transaction = session.beginTransaction();
         Account sender = session.get(Account.class, idSender);
         Account receiver = session.get(Account.class, idReceiver);
+        if (sender.getStatus() == AccountStatus.BLOCKED || receiver.getStatus() == AccountStatus.BLOCKED) {
+            transaction.rollback();
+            return "One of the accounts is blocked and doesn't support transactions";
+        }
         Transh transh = new Transh(sender, receiver, amount);
 
         if (sender.getMoney().compareTo(amount) >= 0) {
@@ -101,10 +103,12 @@ public class AccountDao implements IAccountDao {
         transaction.commit();
 
         if (transh.getStatus() == TranshStatus.PROCESSING)
-            execTransh(tId);
+            message = execTransh(tId);
+
+        return message;
     }
 
-    private void execTransh(int tId) {
+    private String execTransh(int tId) {
         try {
             transaction = session.beginTransaction();
             Transh transh = session.get(Transh.class, tId);
@@ -118,6 +122,7 @@ public class AccountDao implements IAccountDao {
             transh.setStatus(TranshStatus.SUCCESS);
             session.save(transh);
             transaction.commit();
+            return "Transaction was successful";
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
@@ -126,6 +131,7 @@ public class AccountDao implements IAccountDao {
             transh.setStatus(TranshStatus.FAIL);
             session.update(transh);
             transaction.commit();
+            return "Transaction was failed";
         }
     }
 

@@ -16,7 +16,7 @@ public interface IAccountDao {
 
     List<Account> getAll();
 
-    void doTransaction(int idSender, int idReceiver, BigInteger amount);
+    String doTransh(int idSender, int idReceiver, BigInteger amount);
 
 //    void doTransh();
 }

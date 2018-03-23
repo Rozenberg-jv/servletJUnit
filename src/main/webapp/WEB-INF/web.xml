@@ -9,16 +9,6 @@
         <welcome-file>/resources/pages/index.jsp</welcome-file>
     </welcome-file-list>-->
 
-    <!-- accounts list -->
-    <servlet>
-        <servlet-name>AccountsList</servlet-name>
-        <servlet-class>by.kolbun.andersen.web.servlets.AccountsListServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AccountsList</servlet-name>
-        <url-pattern>/a</url-pattern>
-    </servlet-mapping>
-
     <!-- Index -->
     <servlet>
         <servlet-name>Index</servlet-name>
@@ -29,7 +19,27 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- single account info -->
+    <!-- Accounts List -->
+    <servlet>
+        <servlet-name>AccountsList</servlet-name>
+        <servlet-class>by.kolbun.andersen.web.servlets.AccountsListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountsList</servlet-name>
+        <url-pattern>/a</url-pattern>
+    </servlet-mapping>
+
+    <!-- New Account -->
+    <servlet>
+        <servlet-name>NewAccount</servlet-name>
+        <servlet-class>by.kolbun.andersen.web.servlets.NewAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewAccount</servlet-name>
+        <url-pattern>/a/new</url-pattern>
+    </servlet-mapping>
+
+    <!-- Single Account Info -->
     <servlet>
         <servlet-name>SingleAccount</servlet-name>
         <servlet-class>by.kolbun.andersen.web.servlets.SingleAccountServlet</servlet-class>
