@@ -62,7 +62,7 @@ input {
     margin: auto;
 }
 
-input .submit {
+#submit {
     margin: auto;
     background-color: #4CAF50;
     border: none;

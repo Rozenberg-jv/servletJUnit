@@ -2,6 +2,7 @@ package by.kolbun.andersen.blogic.service;
 
 import by.kolbun.andersen.blogic.dao.AccountDao;
 import by.kolbun.andersen.blogic.entity.Account;
+import by.kolbun.andersen.blogic.entity.Transh;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -47,5 +48,9 @@ public class AccountService implements IAccountService {
 
     public void switchStatus(int id) {
         dao.switchStatus(id);
+    }
+
+    public List<Transh> getTranshesListByAccId(int id) {
+        return dao.getTranshesListByAccId(id);
     }
 }

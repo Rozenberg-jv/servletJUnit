@@ -148,13 +148,22 @@ public class AccountDao implements IAccountDao {
 
     public void switchStatus(int id) {
         transaction = session.beginTransaction();
-
         Account a = session.get(Account.class, id);
-
         a.switchStatus();
-
         session.update(a);
+        transaction.commit();
+    }
+
+    public List<Transh> getTranshesListByAccId(int id) {
+        /*transaction = session.beginTransaction();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Transh> query = cb.createQuery(Transh.class);
+        Root<Transh> root = query.from(Transh.class);
+        query.select(root);
+        List<Account> result = session.createQuery(query).list();
 
         transaction.commit();
+        return result;*/
+        return null;
     }
 }

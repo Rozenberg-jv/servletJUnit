@@ -25,7 +25,7 @@
             </table>
         </div>
         <div>
-            <input type="submit" value="Add" class="submit"/>
+            <input id="submit" type="submit" value="Add"/>
         </div>
     </div>
 </form>
