@@ -1,4 +1,4 @@
-table .otable {
+table {
     margin: 6px;
     border: 4px blueviolet solid;
     background-color: aliceblue;
@@ -10,11 +10,11 @@ td, th, tr {
     padding: 4px;
 }
 
-#blocked {
+.blocked {
     background-color: #ffbbbb;
 }
 
-#blocked .button {
+.blocked .button {
     background-color: #ff8888;
 }
 

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="f" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">--%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +15,7 @@
 <body>
 <div class="outer">
     <div class="inner">
-        <table class="otable">
+        <table>
             <thead>
             <tr>
                 <th>User Id</th>
@@ -33,7 +33,7 @@
                 <%--<tr
                         <c:if test="${a.status == BLOCKED}">id="blocked"</c:if> >--%>
 
-                <tr <c:if test="${account.status == BLOCKED}" var="block">id="blocked"</c:if>>
+                <tr <c:if test="${a.status == BLOCKED}" var="block">class="blocked"</c:if>>
                     <td>${a.id}</td>
                     <td>${a.user.firstName} ${a.user.lastName}</td>
                     <td><a href="${pageContext.request.contextPath}/a?act=block&id=${a.id}" class="button">SWITCH</a>
@@ -63,7 +63,7 @@
     <%----%>
     <div class="inner">
         <form action="${pageContext.request.contextPath}/a" method="post">
-            <table class="otable">
+            <table>
                 <tr>
                     <td>Sender ID</td>
                     <td>Receiver ID</td>
