@@ -12,6 +12,16 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
 
+/*
+?act=add&f=&l=&m=
+?act=del&id=
+?act=get&id=
+?act=all
+?act=transh&sen=&rec=&m=
+?act=fill
+?act=block&id=
+*/
+
 public class AccountsListServlet extends HttpServlet {
     private AccountService service = new AccountService();
 
@@ -25,14 +35,14 @@ public class AccountsListServlet extends HttpServlet {
         String act = req.getParameter("act");
         if (act == null) act = "";
         switch (act) {
-            case "add":
+            /*case "add":
                 String fname = req.getParameter("f");
                 String lname = req.getParameter("l");
                 String money = req.getParameter("m");
                 User u = new User(fname, lname);
                 a = new Account(new BigInteger(money), u);
                 System.out.println("added new account with id = " + service.add(a));
-                break;
+                break;*/
             case "del":
                 id = Integer.parseInt(req.getParameter("id"));
                 service.delete(id);
@@ -47,12 +57,12 @@ public class AccountsListServlet extends HttpServlet {
                 System.out.println("all accounts:");
                 all.forEach(System.out::println);
                 break;
-            case "transh":
+            /*case "transh":
                 int senderId = Integer.parseInt(req.getParameter("sen"));
                 int receiverId = Integer.parseInt(req.getParameter("rec"));
                 BigInteger amount = new BigInteger(req.getParameter("m"));
                 message = service.doTransh(senderId, receiverId, amount);
-                break;
+                break;*/
             case "fill":
                 service.fillRows();
                 break;
@@ -72,8 +82,15 @@ public class AccountsListServlet extends HttpServlet {
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }*/
+        int senderId = Integer.parseInt(req.getParameter("sender"));
+        int receiverId = Integer.parseInt(req.getParameter("receiver"));
+        BigInteger amount = new BigInteger(req.getParameter("money"));
+        String message = service.doTransh(senderId, receiverId, amount);
+        req.setAttribute("accounts", service.getAll());
+        req.setAttribute("message", message);
+        System.out.println("message: " + message);
+        req.getRequestDispatcher("/resources/pages/accounts.jsp").forward(req, resp);
+    }
 }

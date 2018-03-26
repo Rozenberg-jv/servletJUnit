@@ -1,4 +1,4 @@
-table {
+table .otable {
     margin: 20px;
     border: 4px blueviolet solid;
     background-color: aliceblue;
@@ -49,13 +49,19 @@ div {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 2px 2px;
+    margin-left: 100px;
     cursor: pointer;
     border-radius: 10px;
 }
 
-.outer {
+div .outer {
+    width: 100%;
+}
 
+div .inner {
+    display: inline-block;
+    margin: 15px;
+    padding: 15px;
 }
 
 input {

@@ -18,23 +18,33 @@
 <c:set var="DENIED" value="<%=TranshStatus.DENIED_NOTENAUGHMONEY%>"/>
 <div class="outer">
     <table class="table_blur">
-        <tr
-                <c:if test="${account.status == BLOCKED}">class="blocked"</c:if> >
+        <tr <c:if test="${account.status == BLOCKED}" var="block">class="blocked"</c:if>>
             <th>Account ID:</th>
-            <th>${account.id}</th>
+            <th colspan="2">${account.id}
+                <c:if test="${block}">[BLOCKED]</c:if></th>
         </tr>
         <tr>
-            <td colspan="2">${account.user.firstName} ${account.user.lastName}</td>
+            <td>Username:</td>
+            <td>${account.user.firstName} ${account.user.lastName}</td>
+            <td><a href="${pageContext.request.contextPath}/a/u?id=${account.id}" class="button">Change</a></td>
         </tr>
         <tr>
-            <td colspan="2"><fmt:formatNumber value="${a.money}" type="currency" currencySymbol="$"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">Transactions:</td>
+            <td>Money</td>
+            <td colspan="2"><fmt:formatNumber value="${account.money}" type="currency" currencySymbol="$"/></td>
         </tr>
     </table>
     <br/>
+    <%-- Transactions List --%>
+    <div>Transactions:</div>
     <table class="table_blur">
+        <tr>
+            <th>id</th>
+            <th>from</th>
+            <th>to</th>
+            <th>amount</th>
+            <th>status</th>
+            <th>date</th>
+        </tr>
         <c:forEach var="t" items="${transhes}">
             <tr <c:if test="${t.status == DENIED}">class="blocked"</c:if>>
                 <td>${t.id}</td>
@@ -46,6 +56,8 @@
             </tr>
         </c:forEach>
     </table>
+    <br/>
+    <a href="${pageContext.request.contextPath}/a" class="button">Return</a>
 </div>
 </body>
 </html>

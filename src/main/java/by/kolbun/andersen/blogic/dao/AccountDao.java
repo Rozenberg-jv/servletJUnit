@@ -155,15 +155,17 @@ public class AccountDao implements IAccountDao {
     }
 
     public List<Transh> getTranshesListByAccId(int id) {
-        /*transaction = session.beginTransaction();
+        transaction = session.beginTransaction();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Transh> query = cb.createQuery(Transh.class);
         Root<Transh> root = query.from(Transh.class);
-        query.select(root);
-        List<Account> result = session.createQuery(query).list();
+        query.select(root).where(cb.or(
+                cb.equal(root.get("sender"), id),
+                cb.equal(root.get("receiver"), id)
+        ));
+        List<Transh> result = session.createQuery(query).list();
 
         transaction.commit();
-        return result;*/
-        return null;
+        return result;
     }
 }

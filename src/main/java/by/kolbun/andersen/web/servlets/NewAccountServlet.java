@@ -16,7 +16,7 @@ public class NewAccountServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/resources/pages/newAccount.jsp").forward(req, resp);
+        req.getRequestDispatcher("/resources/pages/new_account.jsp").forward(req, resp);
     }
 
     @Override

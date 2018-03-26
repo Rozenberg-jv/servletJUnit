@@ -49,6 +49,16 @@
         <url-pattern>/a/s</url-pattern>
     </servlet-mapping>
 
+    <!-- User Info Update -->
+    <servlet>
+        <servlet-name>UserUpdate</servlet-name>
+        <servlet-class>by.kolbun.andersen.web.servlets.UserUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserUpdate</servlet-name>
+        <url-pattern>/a/u</url-pattern>
+    </servlet-mapping>
+
     <!-- resource mapping -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
