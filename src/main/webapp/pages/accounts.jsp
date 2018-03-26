@@ -8,7 +8,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Accounts</title>
-    <link rel="stylesheet" type="text/css" href="resources/static/css/accounts.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/accounts.css"/>
+    <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>--%>
+    <%--<script src="${pageContext.request.contextPath}/js/blocked.js" type="text/javascript"></script>--%>
 </head>
 <body>
 <div class="outer">
@@ -28,8 +30,10 @@
             <c:set var="BLOCKED" value="<%=AccountStatus.BLOCKED%>"/>
 
             <c:forEach items="${accounts}" var="a">
-                <tr
-                        <c:if test="${a.status == BLOCKED}">id="blocked"</c:if> >
+                <%--<tr
+                        <c:if test="${a.status == BLOCKED}">id="blocked"</c:if> >--%>
+
+                <tr <c:if test="${account.status == BLOCKED}" var="block">id="blocked"</c:if>>
                     <td>${a.id}</td>
                     <td>${a.user.firstName} ${a.user.lastName}</td>
                     <td><a href="${pageContext.request.contextPath}/a?act=block&id=${a.id}" class="button">SWITCH</a>
@@ -50,7 +54,7 @@
         <%--<br/>
         <p>
             <c:if test="${empty message}">
-        <p id="message">${message}</p>
+        <p>${message}</p>
         </c:if>
         </p>
         <br/>--%>
@@ -59,7 +63,7 @@
     <%----%>
     <div class="inner">
         <form action="${pageContext.request.contextPath}/a" method="post">
-            <table>
+            <table class="otable">
                 <tr>
                     <td>Sender ID</td>
                     <td>Receiver ID</td>

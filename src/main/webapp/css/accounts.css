@@ -1,5 +1,5 @@
 table .otable {
-    margin: 20px;
+    margin: 6px;
     border: 4px blueviolet solid;
     background-color: aliceblue;
     border-collapse: collapse;
@@ -27,18 +27,6 @@ th {
     border: 2px solid #373737;
 }
 
-div {
-    padding-left: 2em;
-    color: lime;
-}
-
-#message {
-    padding: 10px;
-    border: dotted #5e5e5e;
-    border-radius: 10px;
-    /*width: 50%;*/
-}
-
 .button {
     width: inherit;
     background-color: #4CAF50;
@@ -55,11 +43,13 @@ div {
 }
 
 div .outer {
-    width: 100%;
+    /*width: 100%;*/
+    display: flex;
 }
 
 div .inner {
-    display: inline-block;
+    flex: 1;
+    /*display: inline-block;*/
     margin: 15px;
     padding: 15px;
 }

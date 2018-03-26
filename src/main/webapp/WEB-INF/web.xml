@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-         version="2.4">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>Archetype Created Web Application</display-name>
 
-    <!--<welcome-file-list>
-        <welcome-file>/resources/pages/index.jsp</welcome-file>
-    </welcome-file-list>-->
+    <welcome-file-list>
+        <welcome-file>/pages/index.jsp</welcome-file>
+    </welcome-file-list>
 
     <!--Index-->
-    <servlet>
+    <!--<servlet>
         <servlet-name>Index</servlet-name>
-        <jsp-file>/resources/pages/index.jsp</jsp-file>
+        <jsp-file>/pages/index.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <!-- Accounts List -->
     <servlet>
@@ -60,8 +59,8 @@
     </servlet-mapping>
 
     <!-- resource mapping -->
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>/resources/static/css/*</url-pattern>
-    </servlet-mapping>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>-->
 </web-app>

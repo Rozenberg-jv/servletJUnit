@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Account Info</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/acc_info.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/acc_info.css"/>
 </head>
 <body>
 <c:set var="ACTIVE" value="<%=AccountStatus.ACTIVE%>"/>

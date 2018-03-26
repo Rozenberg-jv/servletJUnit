@@ -4,14 +4,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Welcome to CRUD!</title>
-    <link rel="stylesheet" type="text/css" href="resources/static/css/index.css"/>
+    <link href="../css/index.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="outer">
     <p class="head_text">Bank Accounts System</p>
     <div class="action_refs">
         <ul>
-            <li><a href="${pageContext.request.contextPath}/a" class="button">Servlet</a></li>
+            <li><a href="${pageContext.request.contextPath}/a" class="button">Start</a></li>
         </ul>
     </div>
 </div>

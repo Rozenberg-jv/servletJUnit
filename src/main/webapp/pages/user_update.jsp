@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>User Update</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/accounts.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/accounts.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>

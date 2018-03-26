@@ -1,7 +1,6 @@
 package by.kolbun.andersen.web.servlets;
 
 import by.kolbun.andersen.blogic.entity.Account;
-import by.kolbun.andersen.blogic.entity.User;
 import by.kolbun.andersen.blogic.service.AccountService;
 
 import javax.servlet.ServletException;
@@ -78,7 +77,7 @@ public class AccountsListServlet extends HttpServlet {
         req.setAttribute("accounts", service.getAll());
         req.setAttribute("message", message);
         System.out.println("message: " + message);
-        req.getRequestDispatcher("/resources/pages/accounts.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/accounts.jsp").forward(req, resp);
 
     }
 
@@ -91,6 +90,6 @@ public class AccountsListServlet extends HttpServlet {
         req.setAttribute("accounts", service.getAll());
         req.setAttribute("message", message);
         System.out.println("message: " + message);
-        req.getRequestDispatcher("/resources/pages/accounts.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/accounts.jsp").forward(req, resp);
     }
 }

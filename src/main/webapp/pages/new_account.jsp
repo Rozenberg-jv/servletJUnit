@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>New Account</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/accounts.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/accounts.css"/>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/a/new" method="post">

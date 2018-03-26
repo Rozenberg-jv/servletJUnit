@@ -27,6 +27,6 @@ public class SingleAccountServlet extends HttpServlet {
         req.setAttribute("transhes", transhes);
         req.setAttribute("account", account);
 
-        req.getRequestDispatcher("/resources/pages/info_account.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/info_account.jsp").forward(req, resp);
     }
 }
