@@ -12,7 +12,7 @@
     <p class="head_text">Bank Accounts System</p>
     <div class="action_refs">
         <ul>
-            <li><a href="${pageContext.request.contextPath}/a" class="button">Start</a></li>
+            <li><a href="${pageContext.request.contextPath}/account" class="button">Start</a></li>
         </ul>
     </div>
 </div>

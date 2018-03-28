@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/accounts.css"/>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/a/new" method="post">
+<form action="${pageContext.request.contextPath}/account/new" method="post">
     <div class="outer">
         <div>
             <table>

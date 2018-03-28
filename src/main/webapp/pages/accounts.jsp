@@ -1,4 +1,5 @@
 <%@ page import="by.kolbun.andersen.blogic.entity.AccountStatus" %>
+<%@ page import="by.kolbun.andersen.blogic.entity.TranshStatus" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -10,9 +11,12 @@
     <title>Accounts</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/accounts.css"/>
     <%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>--%>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <%--<script src="${pageContext.request.contextPath}/js/blocked.js" type="text/javascript"></script>--%>
+    <script src="${pageContext.request.contextPath}/js/hide.js" type="text/javascript"></script>
 </head>
 <body>
+<c:set var="DENIED" value="<%=TranshStatus.DENIED_NOTENAUGHMONEY%>"/>
 <div class="outer">
     <div class="inner">
         <table>
@@ -22,7 +26,7 @@
                 <th>Name of User</th>
                 <th>Status</th>
                 <th>Money</th>
-                <th>Action</th>
+                <th width="80px">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -35,34 +39,21 @@
 
                 <tr <c:if test="${a.status == BLOCKED}" var="block">class="blocked"</c:if>>
                     <td>${a.id}</td>
-                    <td>${a.user.firstName} ${a.user.lastName}</td>
-                    <td><a href="${pageContext.request.contextPath}/a?act=block&id=${a.id}" class="button">SWITCH</a>
+                    <td><p>${a.user.firstName} ${a.user.lastName}</p></td>
+                    <td><a href="${pageContext.request.contextPath}/account?act=block&id=${a.id}"
+                           class="button">SWITCH</a>
                     </td>
-
                     <td><fmt:formatNumber value="${a.money}" type="currency" currencySymbol="$"/></td>
-                        <%--<td>
-                            <c:set value="${f:substring(a.money,f:length(a.money)-2,2)}" var="cents"/>
-                            <c:set value="${f:substring(a.money, 0, f:length(a.money))}" var="dolrs"/>
-                                ${dolrs+"."+cents}
-                        </td>--%>
-
-                    <td><a href="${pageContext.request.contextPath}/a/s?id=${a.id}" class="button">Account info</a></td>
+                    <td><a href="${pageContext.request.contextPath}/account/single?id=${a.id}" class="button">Account
+                        info</a></td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        <%--<br/>
-        <p>
-            <c:if test="${empty message}">
-        <p>${message}</p>
-        </c:if>
-        </p>
-        <br/>--%>
-        <a href="${pageContext.request.contextPath}/a/new" class="button">Add new account</a>
+        <a href="${pageContext.request.contextPath}/account/new" class="button">Add new account</a>
     </div>
-    <%----%>
-    <div class="inner">
-        <form action="${pageContext.request.contextPath}/a" method="post">
+    <div>
+        <form action="${pageContext.request.contextPath}/account" method="post">
             <table>
                 <tr>
                     <td>Sender ID</td>
@@ -76,12 +67,42 @@
                     <td><input type="number" min="0" name="money" title="~amount~"/></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="center" class="button">
+                    <td></td>
+                    <td align="center" class="button">
                         <input id="submit" type="submit" value="Do transaction"/>
                     </td>
+                    <td></td>
                 </tr>
             </table>
         </form>
+    </div>
+    <%-- --%>
+
+    <%----%>
+    <div class="inner">
+        <button id="hide" class="button">Transactions</button>
+        <div class="hiddenlist">
+            <table class="table_blur">
+                <tr>
+                    <th>id</th>
+                    <th>from</th>
+                    <th>to</th>
+                    <th>amount</th>
+                    <th>status</th>
+                    <th>date</th>
+                </tr>
+                <c:forEach var="t" items="${transhes}">
+                    <tr <c:if test="${t.status == DENIED}">class="blocked"</c:if>>
+                        <td>${t.id}</td>
+                        <td>${t.sender.id}</td>
+                        <td>${t.receiver.id}</td>
+                        <td>${t.amount}</td>
+                        <td>${t.status}</td>
+                        <td><fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${t.date}"/></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </div>
 </div>
 </body>

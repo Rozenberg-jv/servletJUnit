@@ -26,7 +26,7 @@
         <tr>
             <td>Username:</td>
             <td>${account.user.firstName} ${account.user.lastName}</td>
-            <td><a href="${pageContext.request.contextPath}/a/u?id=${account.id}" class="button">Change</a></td>
+            <td><a href="${pageContext.request.contextPath}/account/update?id=${account.id}" class="button">Change</a></td>
         </tr>
         <tr>
             <td>Money</td>
@@ -57,7 +57,7 @@
         </c:forEach>
     </table>
     <br/>
-    <a href="${pageContext.request.contextPath}/a" class="button">Return</a>
+    <a href="${pageContext.request.contextPath}/account" class="button">Return</a>
 </div>
 </body>
 </html>

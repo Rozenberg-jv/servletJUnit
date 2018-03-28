@@ -168,4 +168,15 @@ public class AccountDao implements IAccountDao {
         transaction.commit();
         return result;
     }
+
+    public List<Transh> getAllTranshes() {
+        transaction = session.beginTransaction();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Transh> query = cb.createQuery(Transh.class);
+        Root<Transh> root = query.from(Transh.class);
+        query.select(root);
+        List<Transh> result = session.createQuery(query).list();
+        transaction.commit();
+        return result;
+    }
 }

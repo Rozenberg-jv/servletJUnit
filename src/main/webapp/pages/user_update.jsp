@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="outer">
-    <form action="${pageContext.request.contextPath}/a/u?id=${id}" method="post">
+    <form action="${pageContext.request.contextPath}/account/update?id=${id}" method="post">
         <div>
             <table>
                 <tr>

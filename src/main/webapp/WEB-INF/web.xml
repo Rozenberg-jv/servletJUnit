@@ -25,7 +25,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountsList</servlet-name>
-        <url-pattern>/a</url-pattern>
+        <url-pattern>/account</url-pattern>
     </servlet-mapping>
 
     <!-- New Account -->
@@ -35,7 +35,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>NewAccount</servlet-name>
-        <url-pattern>/a/new</url-pattern>
+        <url-pattern>/account/new</url-pattern>
     </servlet-mapping>
 
     <!-- Single Account Info -->
@@ -45,7 +45,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SingleAccount</servlet-name>
-        <url-pattern>/a/s</url-pattern>
+        <url-pattern>/account/single</url-pattern>
     </servlet-mapping>
 
     <!-- User Info Update -->
@@ -55,7 +55,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserUpdate</servlet-name>
-        <url-pattern>/a/u</url-pattern>
+        <url-pattern>/account/update</url-pattern>
     </servlet-mapping>
 
     <!-- resource mapping -->

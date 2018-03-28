@@ -61,4 +61,8 @@ public class AccountService implements IAccountService {
         a.setUser(u);
         dao.update(a);
     }
+
+    public List<Transh> getAllTranshes() {
+        return dao.getAllTranshes();
+    }
 }

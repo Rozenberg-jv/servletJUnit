@@ -2,8 +2,6 @@ package by.kolbun.andersen.blogic.entity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "accounts")
@@ -25,8 +23,6 @@ public class Account {
 
     public Account() {
     }
-
-    // TODO: 23.03.2018 добавить атрибут blocked и функционал управления
 
     public Account(BigInteger money, User user) {
         this.money = money;
