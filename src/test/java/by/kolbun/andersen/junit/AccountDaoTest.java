@@ -39,13 +39,6 @@ public class AccountDaoTest {
         a = new Account(this.amount, u);
     }
 
-   /* @Before
-    public void setUp() {
-        service = new AccountService();
-        u = new User("fname", "lname");
-        a = new Account(1000, u);
-    }*/
-
     @Test
     public void testAddGetDelDB() {
         int id = service.add(a);
@@ -58,7 +51,7 @@ public class AccountDaoTest {
     @Ignore
     @Test
     public void testNegativeAmounts() {
-        assertFalse(amount.compareTo(new BigInteger("0")) < 0);
+        assertFalse(amount.signum() < 0);
     }
 
     @After

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
 
+@SuppressWarnings("SpellCheckingInspection")
 @Entity
 @Table(name = "transactions")
 public class Transh {

@@ -6,6 +6,7 @@ import by.kolbun.andersen.blogic.entity.User;
 import by.kolbun.andersen.blogic.entity.exceptions.TranshInvalidValuesException;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigInteger;

@@ -4,7 +4,6 @@ import by.kolbun.andersen.blogic.service.AccountService;
 import org.junit.*;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -14,6 +13,7 @@ import static org.junit.Assert.assertThat;
  */
 
 public class AccountServiceTest {
+
     @BeforeClass
     public static void setUpClass() {
 
@@ -28,13 +28,7 @@ public class AccountServiceTest {
     public void testAddNull() {
         AccountService serv = new AccountService();
         int actual = serv.add(null);
-//        assertEquals("Not -1 returns for ''null'' input", -1, actual);
         assertThat(actual, is(-1));
-    }
-
-    @Test
-    public void test() {
-
     }
 
     @After

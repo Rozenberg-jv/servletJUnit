@@ -12,6 +12,7 @@ import java.math.BigInteger;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
 
 public class AccountTest {
 
@@ -25,7 +26,7 @@ public class AccountTest {
         a = new Account(new BigInteger("1000"), u);
     }
 
-    @Test
+    @Test(timeout = 1)
     public void testSwitchStatus() {
         a.switchStatus();
         assertEquals("Account status don't switch after creation", AccountStatus.BLOCKED, a.getStatus());
@@ -44,6 +45,7 @@ public class AccountTest {
     @Test(expected = NullPointerException.class)
     public void testNPE() {
         u = null;
+        assumeTrue(u == null);
         a.setUser(u);
     }
 

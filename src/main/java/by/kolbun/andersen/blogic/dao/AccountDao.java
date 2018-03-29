@@ -3,6 +3,7 @@ package by.kolbun.andersen.blogic.dao;
 import by.kolbun.andersen.blogic.entity.*;
 import by.kolbun.andersen.blogic.entity.exceptions.TranshInvalidValuesException;
 import by.kolbun.andersen.blogic.utils.HibernateUtil;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -98,6 +99,7 @@ public class AccountDao implements IAccountDao {
             transh.setStatus(TranshStatus.PROCESSING);
         } else {
             transh.setStatus(TranshStatus.DENIED_NOTENAUGHMONEY);
+            message = "Not enaugh money for this transaction";
         }
 
         int tId = (int) session.save(transh);
@@ -177,6 +179,16 @@ public class AccountDao implements IAccountDao {
         Root<Transh> root = query.from(Transh.class);
         query.select(root);
         List<Transh> result = session.createQuery(query).list();
+        transaction.commit();
+        return result;
+    }
+
+    public int delTranshByAccId(int id) {
+        transaction = session.beginTransaction();
+        SQLQuery query = session.createSQLQuery("DELETE FROM `transactions` WHERE " +
+                "`receiver_id` = " + id +
+                " OR `sender_id` = " + id);
+        int result = query.executeUpdate();
         transaction.commit();
         return result;
     }

@@ -70,6 +70,10 @@ public class AccountService implements IAccountService {
         dao.update(a);
     }
 
+    public int delTranshByAccId(int id) {
+        return dao.delTranshByAccId(id);
+    }
+
     public List<Transh> getAllTranshes() {
         return dao.getAllTranshes();
     }
