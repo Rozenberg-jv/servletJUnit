@@ -1,5 +1,7 @@
 package by.kolbun.andersen.blogic.entity;
 
+import by.kolbun.andersen.blogic.entity.exceptions.TranshInvalidValuesException;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
@@ -26,7 +28,9 @@ public class Transh {
     public Transh() {
     }
 
-    public Transh(Account sender, Account receiver, BigInteger amount) {
+    public Transh(Account sender, Account receiver, BigInteger amount) throws TranshInvalidValuesException {
+        if (amount.compareTo(new BigInteger("0")) < 0)
+            throw new TranshInvalidValuesException("Transh amount is negative");
         this.sender = sender;
         this.receiver = receiver;
         this.amount = amount;

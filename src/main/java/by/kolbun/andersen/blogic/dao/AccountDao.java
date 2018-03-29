@@ -1,6 +1,7 @@
 package by.kolbun.andersen.blogic.dao;
 
 import by.kolbun.andersen.blogic.entity.*;
+import by.kolbun.andersen.blogic.entity.exceptions.TranshInvalidValuesException;
 import by.kolbun.andersen.blogic.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -82,7 +83,7 @@ public class AccountDao implements IAccountDao {
     }
 
     @Override
-    public String doTransh(int idSender, int idReceiver, BigInteger amount) {
+    public String doTransh(int idSender, int idReceiver, BigInteger amount) throws TranshInvalidValuesException {
         String message = "o_0 empty message 0_o";
         transaction = session.beginTransaction();
         Account sender = session.get(Account.class, idSender);

@@ -4,6 +4,7 @@ import by.kolbun.andersen.blogic.dao.AccountDao;
 import by.kolbun.andersen.blogic.entity.Account;
 import by.kolbun.andersen.blogic.entity.Transh;
 import by.kolbun.andersen.blogic.entity.User;
+import by.kolbun.andersen.blogic.entity.exceptions.TranshInvalidValuesException;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -40,7 +41,13 @@ public class AccountService implements IAccountService {
 
     @Override
     public String doTransh(int idSender, int idReceiver, BigInteger amount) {
-        return dao.doTransh(idSender, idReceiver, amount);
+        String result = "";
+        try {
+            result = dao.doTransh(idSender, idReceiver, amount);
+        } catch (TranshInvalidValuesException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     // debug method
