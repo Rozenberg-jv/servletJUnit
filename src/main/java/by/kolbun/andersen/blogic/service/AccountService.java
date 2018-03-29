@@ -14,6 +14,7 @@ public class AccountService implements IAccountService {
 
     @Override
     public int add(Account a) {
+        if (a == null) return -1;
         return dao.add(a);
     }
 
@@ -65,4 +66,5 @@ public class AccountService implements IAccountService {
     public List<Transh> getAllTranshes() {
         return dao.getAllTranshes();
     }
+
 }
